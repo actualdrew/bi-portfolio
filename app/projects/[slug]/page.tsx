@@ -10,7 +10,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
   return (
     <div className="space-y-6">
       <h1 className="text-3xl font-bold capitalize">
-        {slug.replace("-", " ")}
+        {slug.replace(/-/g, " ")}
       </h1>
 
       <p className="text-neutral-400 max-w-3xl">
