@@ -1,4 +1,10 @@
-export default function ProjectPage({ params }) {
+interface ProjectPageProps {
+  params: {
+    slug: string
+  }
+}
+
+export default function ProjectPage({ params }: ProjectPageProps) {
   const { slug } = params
 
   return (

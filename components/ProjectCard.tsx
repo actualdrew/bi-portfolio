@@ -1,13 +1,31 @@
 import Image from "next/image"
 import Link from "next/link"
 
-export default function ProjectCard({ title, description, image, slug }) {
+interface ProjectCardProps {
+  title: string
+  description: string
+  image: string
+  slug: string
+}
+
+export default function ProjectCard({
+  title,
+  description,
+  image,
+  slug
+}: ProjectCardProps) {
   return (
     <Link href={`/projects/${slug}`}>
-      <div className="border border-neutral-800 rounded-xl overflow-hidden hover:border-blue-500 transition">
-        <Image src={image} width={800} height={500} alt={title} />
+      <div className="border border-neutral-800 rounded-xl overflow-hidden hover:border-blue-400 transition">
+        <Image
+          src={image}
+          alt={title}
+          width={600}
+          height={400}
+          className="object-cover w-full h-48"
+        />
         <div className="p-4 space-y-2">
-          <h3 className="font-semibold text-lg">{title}</h3>
+          <h3 className="text-xl font-semibold">{title}</h3>
           <p className="text-neutral-400 text-sm">{description}</p>
         </div>
       </div>

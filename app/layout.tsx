@@ -1,9 +1,11 @@
+import type { ReactNode } from "react"
+
 export const metadata = {
   title: "Andrew | Data & BI Portfolio",
   description: "Power BI, Data Engineering, and Analytics Portfolio"
 }
 
-export default function RootLayout({ children }) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <body className="bg-neutral-950 text-neutral-100 antialiased">
