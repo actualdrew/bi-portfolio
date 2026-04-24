@@ -2,6 +2,7 @@ import "./globals.css";
 import type { ReactNode } from "react";
 import SciFiNavbar from "@/components/SciFiNavbar";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/next";
 
 export const metadata = {
   title: "Andrew | Data & BI Portfolio",
@@ -15,6 +16,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <SciFiNavbar />
         {children}
         <SpeedInsights />
+        <Analytics />
       </body>
     </html>
   );
