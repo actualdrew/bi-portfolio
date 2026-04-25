@@ -59,10 +59,10 @@ export default function HaloMapsPage() {
                   Snapshot
                 </div>
                 <div className="text-sm text-slate-200/85">
-                  **Status:** <span className="text-cyan-200">Production</span>
+                  <strong className="text-cyan-200">Status:</strong> Production
                 </div>
                 <div className="mt-3 text-sm text-slate-200/80">
-                  **Stack:** Power BI; Azure Maps; DAX; Next.js
+                  <strong className="text-cyan-200">Stack:</strong> Power BI · Azure Maps · DAX · Next.js
                 </div>
                 <div className="mt-4 text-[11px] text-slate-400 uppercase">Telemetry</div>
                 <div className="mt-2 text-sm text-cyan-200">Live map tiling · Narrative overlays</div>
@@ -109,9 +109,34 @@ export default function HaloMapsPage() {
                 </div>
               </div>
             </GlassPanel>
+
+            {/* Power BI Embed */}
+            <div className="mt-8">
+              <GlassPanel>
+                <h2 className="text-xl font-semibold text-cyan-100 mb-4">
+                  Interactive Power BI Report
+                </h2>
+
+                <div className="w-full flex justify-center py-4">
+                  <iframe
+                    title="PowerBI Halo Map--COPY 4 ArcGis"
+                    width="100%"
+                    height="850"
+                    src="https://app.powerbi.com/view?r=eyJrIjoiMWI3N2M2NWYtZDQ5MC00YWQ0LTgxNGItNzFlMzUwYTNlOThhIiwidCI6ImNhZGZjN2E1LTBlZjUtNDJjZi05MTJjLTNhNzgzNWZiZWY5MCJ9"
+                    frameBorder="0"
+                    allowFullScreen={true}
+                    style={{
+                      borderRadius: "12px",
+                      boxShadow: "0 0 40px rgba(0, 0, 0, 0.35)",
+                      maxWidth: "1400px",
+                    }}
+                  ></iframe>
+                </div>
+              </GlassPanel>
+            </div>
           </motion.div>
 
-          {/* Details / Sidebar */}
+          {/* Sidebar */}
           <motion.aside
             initial="hidden"
             whileInView="visible"
@@ -201,7 +226,9 @@ export default function HaloMapsPage() {
                 <div className="text-xs tracking-[0.22em] uppercase text-cyan-200/80 mb-1">
                   Related Projects
                 </div>
-                <h4 className="text-lg font-semibold text-cyan-100">Executive Performance Command Center</h4>
+                <h4 className="text-lg font-semibold text-cyan-100">
+                  Executive Performance Command Center
+                </h4>
                 <p className="mt-2 text-slate-200/80 max-w-xl">
                   A companion product focused on narrative KPIs and anomaly detection for executive audiences.
                 </p>
@@ -216,7 +243,7 @@ export default function HaloMapsPage() {
                 </Link>
                 <a
                   href="mailto:andrew@example.com"
-                  className="rounded-full border border-cyan-500/40 bg-cyan-500/10 px-4 py-2 text-xs tracking-[0.18em] uppercase text-cyan-200 hover:bg-cyan-500/20 transition-colors"
+                  className="rounded-full border border-cyan-500/30 bg-cyan-500/10 px-4 py-2 text-xs tracking-[0.18em] uppercase text-cyan-200 hover:bg-cyan-500/20 transition-colors"
                 >
                   Request Demo
                 </a>
