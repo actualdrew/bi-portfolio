@@ -27,64 +27,6 @@ export default function HomePage() {
   return (
     <SciFiLayout>
 
-      {/* TOP NAV */}
-      <motion.header
-        initial={{ opacity: 0, y: -10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
-        className="w-full px-6 pt-6 pb-4"
-      >
-        <div className="max-w-6xl mx-auto flex items-center justify-between">
-          <motion.div
-            whileHover={{ x: 2 }}
-            transition={{ type: "spring", stiffness: 300, damping: 20 }}
-          >
-            <Link href="/" className="flex items-center gap-2">
-              <div className="h-8 w-8 rounded-full border border-cyan-500/40 bg-cyan-500/10 flex items-center justify-center text-xs tracking-[0.18em] uppercase text-cyan-200 hover:shadow-[0_0_12px_rgba(0,255,255,0.4)] transition-shadow">
-                29
-              </div>
-              <span className="text-sm tracking-[0.22em] uppercase text-slate-200/80">
-                Bi Analytics Interface
-              </span>
-            </Link>
-          </motion.div>
-
-          <nav className="flex items-center gap-6 text-xs tracking-[0.22em] uppercase text-slate-200/70">
-            {["Projects", "About"].map((item) => (
-              <motion.div
-                key={item}
-                whileHover={{ scale: 1.05, x: 2 }}
-                whileTap={{ scale: 0.95 }}
-                transition={{ type: "spring", stiffness: 300, damping: 20 }}
-              >
-                <Link href={`/${item.toLowerCase()}`} className="hover:text-cyan-300 transition-colors">
-                  {item}
-                </Link>
-              </motion.div>
-            ))}
-
-            <motion.a
-              href="mailto:andrew@example.com"
-              whileHover={{ scale: 1.05, x: 2 }}
-              whileTap={{ scale: 0.95 }}
-              transition={{ type: "spring", stiffness: 300, damping: 20 }}
-              className="rounded-full border border-cyan-500/40 bg-cyan-500/5 px-4 py-1.5 text-cyan-200 hover:border-cyan-300 hover:bg-cyan-500/10 transition-colors"
-            >
-              Contact
-            </motion.a>
-          </nav>
-        </div>
-      </motion.header>
-
-      <motion.div
-        initial={{ scaleX: 0 }}
-        animate={{ scaleX: 1 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-        className="origin-left"
-      >
-        <EnergyDivider />
-      </motion.div>
-
       {/* HERO */}
       <section className="w-full px-6 pt-16 pb-20 relative">
         {/* Ambient glow */}
@@ -109,7 +51,6 @@ export default function HomePage() {
               className="inline-flex items-center gap-2 rounded-full border border-cyan-500/30 bg-cyan-500/5 px-4 py-1 text-xs tracking-[0.2em] uppercase text-cyan-300/80 mb-6"
             >
               <span className="h-1.5 w-1.5 rounded-full bg-cyan-400 animate-pulse" />
-              Analytics Command Interface
             </motion.div>
 
             <motion.h1
