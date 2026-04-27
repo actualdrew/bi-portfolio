@@ -22,7 +22,7 @@ export default function SciFiNavbar() {
         <Link href="/" className="flex items-center gap-3 group">
           <div className="relative flex items-center justify-center">
             <Image
-              src="/AA scifi logo.png"
+              src="/AA_scifi_logo.png"
               alt="AA Logo"
               width={88}
               height={88}
