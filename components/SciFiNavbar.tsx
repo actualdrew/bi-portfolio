@@ -17,10 +17,8 @@ export default function SciFiNavbar() {
     <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-[#050712]/70 border-b border-cyan-500/20 shadow-[0_0_25px_rgba(14,165,233,0.15)]">
       <div className="max-w-6xl mx-auto px-5 py-2 flex items-center justify-between">
 
-        {/* LOGO + TITLE (SEPARATED) */}
+        {/* LOGO + TITLE */}
         <Link href="/" className="flex items-center gap-3 group">
-
-          {/* Logo */}
           <Image
             src="/AA_scifi_logo.png"
             alt="AA Logo"
@@ -35,7 +33,6 @@ export default function SciFiNavbar() {
             "
           />
 
-          {/* Full Title */}
           <span
             className="
               text-sm sm:text-base
@@ -50,8 +47,15 @@ export default function SciFiNavbar() {
           </span>
         </Link>
 
-        {/* NAV LINKS */}
-        <div className="flex items-center gap-6">
+        {/* MOBILE HAMBURGER */}
+        <button className="sm:hidden text-cyan-200 flex flex-col gap-1.5">
+          <span className="w-5 h-0.5 bg-cyan-300"></span>
+          <span className="w-5 h-0.5 bg-cyan-300"></span>
+          <span className="w-5 h-0.5 bg-cyan-300"></span>
+        </button>
+
+        {/* DESKTOP NAV LINKS */}
+        <div className="hidden sm:flex items-center gap-6">
           <Link
             href="/"
             className={`${linkBase} ${
