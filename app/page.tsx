@@ -45,14 +45,6 @@ export default function HomePage() {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="flex-1"
           >
-            <motion.div
-              whileHover={{ scale: 1.03 }}
-              transition={{ type: "spring", stiffness: 250, damping: 18 }}
-              className="inline-flex items-center gap-2 rounded-full border border-cyan-500/30 bg-cyan-500/5 px-4 py-1 text-xs tracking-[0.2em] uppercase text-cyan-300/80 mb-6"
-            >
-              <span className="h-1.5 w-1.5 rounded-full bg-cyan-400 animate-pulse" />
-            </motion.div>
-
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
