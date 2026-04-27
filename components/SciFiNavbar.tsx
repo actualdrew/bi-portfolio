@@ -3,9 +3,11 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
+import { useState } from "react";
 
 export default function SciFiNavbar() {
   const pathname = usePathname();
+  const [open, setOpen] = useState(false);
 
   const linkBase =
     "relative px-3 py-1.5 text-xs tracking-[0.22em] uppercase transition-colors";
@@ -48,7 +50,10 @@ export default function SciFiNavbar() {
         </Link>
 
         {/* MOBILE HAMBURGER */}
-        <button className="sm:hidden text-cyan-200 flex flex-col gap-1.5">
+        <button
+          className="sm:hidden text-cyan-200 flex flex-col gap-1.5"
+          onClick={() => setOpen(!open)}
+        >
           <span className="w-5 h-0.5 bg-cyan-300"></span>
           <span className="w-5 h-0.5 bg-cyan-300"></span>
           <span className="w-5 h-0.5 bg-cyan-300"></span>
@@ -95,6 +100,47 @@ export default function SciFiNavbar() {
           </a>
         </div>
       </div>
+
+      {/* MOBILE MENU PANEL */}
+      {open && (
+        <div className="sm:hidden px-5 pb-4 pt-2 bg-[#050712]/90 border-t border-cyan-500/20">
+          <div className="flex flex-col gap-4 text-xs tracking-[0.22em] uppercase">
+
+            <Link
+              href="/"
+              onClick={() => setOpen(false)}
+              className={`${pathname === "/" ? "text-cyan-300" : "text-slate-300/80"} hover:text-cyan-200`}
+            >
+              Home
+            </Link>
+
+            <Link
+              href="/projects"
+              onClick={() => setOpen(false)}
+              className={`${pathname.startsWith("/projects") ? "text-cyan-300" : "text-slate-300/80"} hover:text-cyan-200`}
+            >
+              Projects
+            </Link>
+
+            <Link
+              href="/about"
+              onClick={() => setOpen(false)}
+              className={`${pathname.startsWith("/about") ? "text-cyan-300" : "text-slate-300/80"} hover:text-cyan-200`}
+            >
+              About
+            </Link>
+
+            <a
+              href="mailto:andrewadamson52@gmail.com"
+              onClick={() => setOpen(false)}
+              className="text-slate-300/80 hover:text-cyan-200"
+            >
+              Contact
+            </a>
+
+          </div>
+        </div>
+      )}
     </nav>
   );
 }
