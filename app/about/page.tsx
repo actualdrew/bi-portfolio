@@ -143,9 +143,8 @@ export default function AboutPage() {
                 </h2>
               </div>
               <p className="text-slate-200/85 leading-relaxed text-base">
-                When I’m not building analytics products or digging into competitive signals, you’ll usually find me listening to music, 
-                playing golf, fishing, traveling, spending time with friends and family, or supporting 
-                <span className="text-cyan-200"> TCU athletics</span>.
+                When I’m not building analytics products or digging into competitive signals, you’ll usually find me listening to classic rock, 
+                playing golf, fishing, traveling, spending time with friends and family, or supporting TCU Athletics!
               </p>
             </motion.div>
 
@@ -154,13 +153,26 @@ export default function AboutPage() {
               <h2 className="text-lg font-semibold text-cyan-100 mb-3 tracking-wide">
                 Download My Resume
               </h2>
-              <a
-                href="/Andrew_Adamson_Resume.pdf"
-                download
-                className="inline-block rounded-full border border-cyan-400/40 bg-cyan-400/10 px-6 py-2 text-sm tracking-wide text-cyan-200 hover:bg-cyan-400/20 hover:border-cyan-300 transition-all hover-lift"
-              >
-                Download Resume (PDF)
-              </a>
+
+              <div className="flex flex-wrap items-center gap-4">
+                {/* PDF */}
+                <a
+                  href="/Andrew_Adamson_Resume.pdf"
+                  download
+                  className="inline-block rounded-full border border-cyan-400/40 bg-cyan-400/10 px-6 py-2 text-sm tracking-wide text-cyan-200 hover:bg-cyan-400/20 hover:border-cyan-300 transition-all hover-lift"
+                >
+                  Download Resume (PDF)
+                </a>
+
+                {/* DOCX */}
+                <a
+                  href="/Andrew_Adamson_Resume.docx"
+                  download
+                  className="inline-block rounded-full border border-cyan-400/40 bg-cyan-400/10 px-6 py-2 text-sm tracking-wide text-cyan-200 hover:bg-cyan-400/20 hover:border-cyan-300 transition-all hover-lift"
+                >
+                  Download Resume (Word)
+                </a>
+              </div>
             </motion.div>
           </motion.div>
         </GlassPanel>
