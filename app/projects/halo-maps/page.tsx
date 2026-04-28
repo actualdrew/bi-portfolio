@@ -14,6 +14,7 @@ const fadeUp = {
 
 export default function HaloMapsPage() {
   const [open, setOpen] = useState(false);
+  const [techOpen, setTechOpen] = useState(false);
 
   return (
     <SciFiLayout>
@@ -34,7 +35,9 @@ export default function HaloMapsPage() {
               Geospatial Market Intelligence Suite
             </h1>
             <p className="mt-3 text-slate-200/80 max-w-2xl">
-              A custom‑built geospatial analytics engine that visualizes population patterns, density signals, and city‑level behavior to reveal opportunity clusters and help leaders understand how a metro area functions.
+              A custom‑built geospatial analytics engine that visualizes population patterns,
+              density signals, and city‑level behavior to help leaders understand how a metro
+              area functions.
             </p>
 
             <div className="mt-6">
@@ -73,56 +76,85 @@ export default function HaloMapsPage() {
         </motion.div>
 
         {/* Main Content */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
 
           {/* Embed */}
           <motion.div
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            transition={{ duration: 0.6 }}
-            className="lg:col-span-2"
-          >
-            <GlassPanel className="hover-lift">
-              <h2 className="text-xl font-semibold text-cyan-100 mb-4">
-                Interactive Power BI Report
-              </h2>
+  variants={fadeUp}
+  initial="hidden"
+  whileInView="visible"
+  transition={{ duration: 0.6 }}
+  className="lg:col-span-2 flex flex-col h-full"
+>
+  <GlassPanel className="hover-lift flex flex-col h-full">
+    <h2 className="text-xl font-semibold text-cyan-100 mb-4">
+      Interactive Power BI Report
+    </h2>
 
-              <div
-                className="relative w-full max-w-[1600px] mx-auto"
-                style={{ paddingTop: "56.25%" }} // 16:9 recommended
-              >
-                <iframe
-                  title="PowerBI Halo Map--Azure"
-                  src="https://app.powerbi.com/view?r=eyJrIjoiYzMyNzQwZTYtOGI4YS00ZGI2LTkxMzYtNjUxZGYzMzI0NWJjIiwidCI6ImNhZGZjN2E1LTBlZjUtNDJjZi05MTJjLTNhNzgzNWZiZWY5MCJ9&embedImagePlaceholder=true"
-                  className="absolute top-0 left-0 w-full h-full rounded-xl"
-                  frameBorder="0"
-                  allowFullScreen
-                />
-              </div>
-            </GlassPanel>
-          </motion.div>
+    <div className="relative w-full flex-1 min-h-[480px]">
+      <iframe
+        title="PowerBI Halo Map--Azure"
+        src="https://app.powerbi.com/view?r=eyJrIjoiYzMyNzQwZTYtOGI4YS00ZGI2LTkxMzYtNjUxZGYzMzI0NWJjIiwidCI6ImNhZGZjN2E1LTBlZjUtNDJjZi05MTJjLTNhNzgzNWZiZWY5MCJ9&embedImagePlaceholder=true"
+        className="absolute top-0 left-0 w-full h-full rounded-xl"
+        frameBorder="0"
+        allowFullScreen
+      />
+    </div>
+  </GlassPanel>
+</motion.div>
 
-          {/* Sidebar Overview */}
+          {/* Sidebar Overview + HOW TO USE */}
           <motion.aside
             variants={fadeUp}
             initial="hidden"
             whileInView="visible"
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="lg:col-span-1"
+            className="lg:col-span-1 space-y-6"
           >
+            {/* Overview */}
             <GlassPanel className="hover-lift">
               <div className="text-xs tracking-[0.22em] uppercase text-cyan-200/80 mb-2">
                 Overview
               </div>
               <p className="text-sm text-slate-200/80 leading-relaxed">
-                Halo Maps analyze population, density, and city‑level attributes across a metro area to reveal where people live, how communities cluster, and which locations present the strongest opportunities.
+                Halo Maps analyzes population, density, and city‑level attributes across a
+                metro area to reveal where people live, how communities cluster, and which
+                locations present the strongest opportunities.
               </p>
+            </GlassPanel>
+
+            {/* HOW TO USE */}
+            <GlassPanel className="hover-lift">
+              <div className="text-xs tracking-[0.22em] uppercase text-cyan-200/80 mb-2">
+                How to Use
+              </div>
+              <ul className="text-sm text-slate-200/80 leading-relaxed space-y-3">
+                <li>
+                  <strong className="text-cyan-200">1. Choose a Mode:</strong>  
+                  Select Coordinate, Metro, or City/State mode to define how the map interprets your input.
+                </li>
+                <li>
+                  <strong className="text-cyan-200">2. Enter or Select a Location:</strong>  
+                  Use the slicers to enter coordinates or choose a metro/city.
+                </li>
+                <li>
+                  <strong className="text-cyan-200">3. Explore the Map:</strong>  
+                  Azure Maps updates instantly based on your selection.
+                </li>
+                <li>
+                  <strong className="text-cyan-200">4. Read the Narrative:</strong>  
+                  The narrative panel explains what your selection means.
+                </li>
+                <li>
+                  <strong className="text-cyan-200">5. Compare Areas:</strong>  
+                  Switch modes or locations to evaluate different geographies.
+                </li>
+              </ul>
             </GlassPanel>
           </motion.aside>
         </div>
 
-        {/* CASE STUDY SECTION */}
+        {/* CASE STUDY SECTION (UNCHANGED) */}
         <motion.div
           variants={fadeUp}
           initial="hidden"
@@ -131,7 +163,6 @@ export default function HaloMapsPage() {
           className="mt-16"
         >
           <GlassPanel className="hover-lift p-6">
-            {/* Header Block */}
             <div
               className="flex items-center justify-between cursor-pointer"
               onClick={() => setOpen(!open)}
@@ -153,7 +184,6 @@ export default function HaloMapsPage() {
               </div>
             </div>
 
-            {/* Collapsible Content */}
             {open && (
               <motion.div
                 initial={{ opacity: 0, y: 12 }}
@@ -161,24 +191,34 @@ export default function HaloMapsPage() {
                 transition={{ duration: 0.4, ease: "easeOut" }}
                 className="mt-6 space-y-6 text-slate-200/85 leading-relaxed"
               >
+                {/* Your existing case study content remains unchanged */}
                 <div>
                   <h3 className="text-lg font-semibold text-cyan-200 mb-2">Overview</h3>
                   <p>
-                    Halo Map is a geospatial analytics engine built to help leaders understand how a metro area behaves. It unifies population patterns, density signals, and city‑level attributes into a single, map‑driven experience that highlights where people live, how communities cluster, and which locations present the strongest opportunities.
+                    Halo Map is a geospatial analytics engine built to help leaders understand
+                    how a metro area behaves. It unifies population patterns, density signals,
+                    and city‑level attributes into a single, map‑driven experience that
+                    highlights where people live, how communities cluster, and which locations
+                    present the strongest opportunities.
                   </p>
                 </div>
 
                 <div>
                   <h3 className="text-lg font-semibold text-cyan-200 mb-2">The Problem</h3>
                   <p>
-                    Decision‑makers often rely on fragmented demographic reports or static maps that fail to show how a region actually behaves. Halo Maps solve this by translating complex spatial data into clear, actionable insight.
+                    Decision‑makers often rely on fragmented demographic reports or static maps
+                    that fail to show how a region actually behaves. Halo Maps solve this by
+                    translating complex spatial data into clear, actionable insight.
                   </p>
                 </div>
 
                 <div>
                   <h3 className="text-lg font-semibold text-cyan-200 mb-2">The Solution</h3>
                   <p>
-                    Halo Maps transforms raw demographic and geographic data into a decision‑ready geospatial intelligence layer. It highlights population distribution, density extremes, top cities, and opportunity clusters while providing narrative context that explains why patterns exist.
+                    Halo Maps transforms raw demographic and geographic data into a
+                    decision‑ready geospatial intelligence layer. It highlights population
+                    distribution, density extremes, top cities, and opportunity clusters while
+                    providing narrative context that explains why patterns exist.
                   </p>
                 </div>
 
@@ -196,13 +236,141 @@ export default function HaloMapsPage() {
                 <div>
                   <h3 className="text-lg font-semibold text-cyan-200 mb-2">Impact</h3>
                   <p>
-                    Halo Maps enable leaders to identify high‑value trade areas, compare markets with clarity, and make confident, data‑driven decisions using a living, interactive intelligence tool.
+                    Halo Maps enables leaders to identify high‑value trade areas, compare
+                    markets with clarity, and make confident, data‑driven decisions using a
+                    living, interactive intelligence tool.
                   </p>
                 </div>
               </motion.div>
             )}
           </GlassPanel>
         </motion.div>
+
+        {/* TECHNICAL OVERVIEW (COLLAPSIBLE) */}
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="mt-16"
+        >
+          <GlassPanel className="hover-lift p-6">
+            {/* Header Block */}
+            <div
+              className="flex items-center justify-between cursor-pointer"
+              onClick={() => setTechOpen(!techOpen)}
+            >
+              <div className="flex items-center gap-3">
+                <motion.div
+                  initial={{ scaleY: 0 }}
+                  whileInView={{ scaleY: 1 }}
+                  transition={{ duration: 0.6, ease: "easeOut" }}
+                  className="h-6 w-1 rounded-full bg-gradient-to-b from-cyan-400 to-sky-500 origin-top"
+                />
+                <h2 className="text-xl font-semibold tracking-[0.16em] uppercase text-cyan-100">
+                  Technical Overview
+                </h2>
+              </div>
+
+              <div className="text-cyan-300 text-sm tracking-wide">
+                {techOpen ? "Hide" : "Show"}
+              </div>
+            </div>
+
+            {/* Collapsible Content */}
+            {techOpen && (
+              <motion.div
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, ease: "easeOut" }}
+                className="mt-6 space-y-6 text-slate-200/85 leading-relaxed"
+              >
+               
+
+                <div>
+                  <h3 className="text-lg font-semibold text-cyan-200 mb-2">Mode Switching</h3>
+                  <p>
+                    The report supports three analytical modes—Coordinate Mode, Metro Mode, and
+                    City/State Mode. These modes are switched using Power BI bookmarks, which
+                    control which slicers are visible and which inputs are active. The underlying
+                    data model remains constant; only the UI state changes.
+                  </p>
+                </div>
+
+                <div>
+                  <h3 className="text-lg font-semibold text-cyan-200 mb-2">Slicers & Inputs</h3>
+                  <p>
+                    Each mode exposes a different set of slicers: latitude/longitude inputs in
+                    Coordinate Mode, a metro selector in Metro Mode, and city/state selectors in
+                    City/State Mode. These inputs determine the selected point used throughout
+                    the report for distance calculations, filtering, and narrative generation.
+                  </p>
+                </div>
+
+                <div>
+                  <h3 className="text-lg font-semibold text-cyan-200 mb-2">Spatial Calculations</h3>
+                  <p>
+                    Distance between the selected point and each location in the SimpleMaps
+                    dataset is computed using a DAX implementation of the haversine formula.
+                    This measure drives nearest‑location ranking, distance‑based filtering, and
+                    dynamic text updates.
+                  </p>
+
+                  <pre className="bg-[#0a0f1a] border border-cyan-500/20 rounded-md p-3 text-[11px] overflow-x-auto text-cyan-200">
+Distance = 
+VAR Lat1 = [Selected Latitude]
+VAR Lon1 = [Selected Longitude]
+VAR Lat2 = MAX(SimpleMaps[lat])
+VAR Lon2 = MAX(SimpleMaps[lng])
+VAR EarthRadius = 3959
+
+VAR dLat = RADIANS(Lat2 - Lat1)
+VAR dLon = RADIANS(Lon2 - Lon1)
+
+VAR a =
+    SIN(dLat / 2) * SIN(dLat / 2) +
+    COS(RADIANS(Lat1)) * COS(RADIANS(Lat2)) *
+    SIN(dLon / 2) * SIN(dLon / 2)
+
+VAR c = 2 * ATAN( SQRT(a) / SQRT(1 - a) )
+
+RETURN EarthRadius * c
+                  </pre>
+                </div>
+
+                <div>
+                  <h3 className="text-lg font-semibold text-cyan-200 mb-2">Auto‑Populating Metrics</h3>
+                  <p>
+                    All numeric and textual outputs are generated through DAX measures that
+                    reference the active mode and selected point. These measures populate metro
+                    labels, city/state identifiers, nearest‑location names, distance summaries,
+                    and other context‑aware values.
+                  </p>
+                </div>
+
+                <div>
+                  <h3 className="text-lg font-semibold text-cyan-200 mb-2">Narrative Insights</h3>
+                  <p>
+                    Narrative insights are produced through structured DAX expressions that
+                    synthesize the active mode, selected geography, and computed distances. The
+                    narrative panel updates automatically when the mode changes or a new point
+                    is selected.
+                  </p>
+                </div>
+
+                <div>
+                  <h3 className="text-lg font-semibold text-cyan-200 mb-2">Embedded Deployment</h3>
+                  <p>
+                    The report is embedded into the Next.js portfolio using a chromeless Power BI
+                    iframe wrapped in a responsive container, allowing it to appear as a native
+                    part of the site while maintaining full interactivity.
+                  </p>
+                </div>
+              </motion.div>
+            )}
+          </GlassPanel>
+        </motion.div>
+
       </motion.section>
     </SciFiLayout>
   );
