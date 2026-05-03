@@ -106,10 +106,10 @@ export default function ProjectsPage() {
                   Coming Soon
                 </div>
                 <h3 className="text-lg font-semibold text-cyan-100 mb-2">
-                  Executive Performance Command Center
+                  TRRC Dashboard
                 </h3>
                 <p className="text-sm text-slate-200/80 leading-relaxed">
-                  A high‑signal executive dashboard concept focused on narrative KPIs and decision‑ready clarity.
+                  A full-stack oil & gas analytics pipeline built on 78M+ records from the Texas Railroad Commission — covering production trends, operator benchmarking, territory planning, and prospecting across 30+ years of Texas drilling history.
                 </p>
               </GlassPanel>
             </motion.div>

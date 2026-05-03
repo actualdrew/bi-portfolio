@@ -248,21 +248,29 @@ export default function HomePage() {
                       Coming Soon
                     </div>
                     <div className="text-[10px] tracking-[0.22em] uppercase text-slate-500">
-                      Executive Analytics
+                      TRRC Dashboard
                     </div>
                   </div>
 
                   <h3 className="text-lg font-semibold text-cyan-100 mb-2">
-                    Executive Performance Command Center
+                    TRRC Dashboard
                   </h3>
 
                   <p className="text-sm text-slate-200/80 leading-relaxed mb-4">
-                    A high‑signal executive dashboard concept focused on narrative KPIs, anomaly detection, and decision‑ready views — designed to feel like a mission control surface.
+                    A full-stack oil & gas analytics pipeline built on 78M+ records from the Texas Railroad Commission; covering production trends, operator benchmarking, territory planning, and prospecting across 30+ years of Texas drilling history.
                   </p>
 
                   <div className="flex flex-wrap gap-2 text-[11px] text-cyan-200/80">
                     <span className="rounded-full border border-cyan-500/40 bg-cyan-500/10 px-2 py-0.5">
                       Power BI
+                    </span>
+                    <span className="rounded-full border border-cyan-500/40 bg-cyan-500/10 px-2 py-0.5">
+                      SQL
+                    </span>
+                    <span className="rounded-full border border-cyan-500/40 bg-cyan-500/10 px-2 py-0.5">
+                      ETL
+                    </span><span className="rounded-full border border-cyan-500/40 bg-cyan-500/10 px-2 py-0.5">
+                      Python
                     </span>
                     <span className="rounded-full border border-cyan-500/40 bg-cyan-500/10 px-2 py-0.5">
                       Narrative KPIs
