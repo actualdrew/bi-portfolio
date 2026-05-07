@@ -23,13 +23,33 @@ const staggerItem = {
   visible: { opacity: 1, y: 0, filter: "blur(0px)" },
 };
 
+const featuredProjects = [
+  {
+    href: "/projects/halo-maps",
+    label: '"Halo Maps"',
+    type: "Geospatial Engine",
+    title: "Geospatial Market Intelligence Suite",
+    description:
+      "Halo Maps is a geospatial intelligence report built to unify population, density, and metro-area signals into a single, decision-ready experience with narrative overlays.",
+    tags: ["Power BI", "Azure Maps", "DAX"],
+  },
+  {
+    href: "/projects/rrc-dashboard",
+    label: '"RRC Dashboard"',
+    type: "Upstream Analytics",
+    title: "Texas Oil & Gas Intelligence",
+    description:
+      "A full-stack oil & gas analytics pipeline built on 78M+ records from the Texas Railroad Commission — covering production trends, operator benchmarking, and 30+ years of Texas drilling history.",
+    tags: ["Power BI", "SQL", "ETL", "Python"],
+  },
+];
+
 export default function HomePage() {
   return (
     <SciFiLayout>
 
       {/* HERO */}
       <section className="w-full px-6 pt-16 pb-20 relative">
-        {/* Ambient glow */}
         <motion.div
           animate={{ opacity: [0.15, 0.25, 0.15] }}
           transition={{ duration: 6, repeat: Infinity }}
@@ -56,10 +76,9 @@ export default function HomePage() {
             </motion.h1>
 
             <p className="mt-4 text-lg text-slate-200/80 leading-relaxed max-w-xl">
-              This portfolio is a fully custom, self‑built platform designed to show how I approach analytics with a product mindset. Every page reflects the full lifecycle — defining the problem, engineering the data foundation, designing the experience, and delivering polished solutions that drive decisions.
+              This portfolio is a fully custom, self-built platform designed to show how I approach analytics with a product mindset. Every page reflects the full lifecycle — defining the problem, engineering the data foundation, designing the experience, and delivering polished solutions that drive decisions.
             </p>
 
-            {/* SKILL TAGS */}
             <motion.div
               variants={staggerParent}
               initial="hidden"
@@ -78,14 +97,13 @@ export default function HomePage() {
               ))}
             </motion.div>
 
-            {/* CTA BUTTONS */}
             <div className="mt-10 flex flex-wrap gap-4">
               <motion.div whileHover={{ scale: 1.04, x: 2 }} whileTap={{ scale: 0.97 }}>
                 <Link
                   href="/projects/halo-maps"
                   className="rounded-full border border-cyan-500/60 bg-cyan-500/15 px-6 py-2 text-xs tracking-[0.22em] uppercase text-cyan-100 hover:bg-cyan-500/25 transition-colors"
                 >
-                  View “Halo Maps”
+                  View "Halo Maps"
                 </Link>
               </motion.div>
 
@@ -117,7 +135,7 @@ export default function HomePage() {
                   ["Portfolio Scope", "Analytical Products · UI/UX Design · Technical Capabilities · Background"],
                   ["Core Strengths", "Geospatial Analytics · Executive Reporting · Problem Solving"],
                   ["Technical Foundation", "Fabric · DAX · Azure · Next.js · SQL"],
-                  ["Delivery Philosophy", "Product‑minded · UX‑driven"],
+                  ["Delivery Philosophy", "Product-minded · UX-driven"],
                 ].map(([label, value]) => (
                   <motion.div
                     key={label}
@@ -156,7 +174,6 @@ export default function HomePage() {
       >
         <div className="max-w-6xl mx-auto">
 
-          {/* Section Header */}
           <div className="flex items-center justify-between mb-6">
             <div className="flex items-center gap-3">
               <motion.div
@@ -180,7 +197,6 @@ export default function HomePage() {
             </motion.div>
           </div>
 
-          {/* Project Grid */}
           <motion.div
             variants={staggerParent}
             initial="hidden"
@@ -188,37 +204,37 @@ export default function HomePage() {
             viewport={{ once: true, amount: 0.2 }}
             className="grid grid-cols-1 md:grid-cols-2 gap-8"
           >
-            {/* Halo Maps */}
-            <motion.div variants={staggerItem}>
-              <Link href="/projects/halo-maps" className="group">
-                <motion.div
-                  whileHover={{
-                    y: -6,
-                    scale: 1.02,
-                    boxShadow: "0 0 25px rgba(0,255,255,0.25)",
-                  }}
-                  transition={{ type: "spring", stiffness: 260, damping: 18 }}
-                >
-                  <GlassPanel>
+            {featuredProjects.map((project) => (
+              <motion.div key={project.href} variants={staggerItem} className="h-full">
+                <Link href={project.href} className="block h-full">
+                  <motion.div
+                    whileHover={{
+                      y: -6,
+                      scale: 1.02,
+                      boxShadow: "0 0 25px rgba(0,255,255,0.25)",
+                    }}
+                    transition={{ type: "spring", stiffness: 260, damping: 18 }}
+                    className="h-full rounded-xl border border-cyan-400/20 bg-white/5 backdrop-blur-sm p-6 hover:border-cyan-400/40 hover:bg-cyan-400/5 transition-colors duration-300"
+                  >
                     <div className="flex items-center justify-between mb-3">
                       <div className="text-xs tracking-[0.22em] uppercase text-cyan-200/80">
-                        “Halo Maps”
+                        {project.label}
                       </div>
                       <div className="text-[10px] tracking-[0.22em] uppercase text-slate-400">
-                        Geospatial Engine
+                        {project.type}
                       </div>
                     </div>
 
                     <h3 className="text-lg font-semibold text-cyan-100 mb-2">
-                      Geospatial Market Intelligence Suite
+                      {project.title}
                     </h3>
 
                     <p className="text-sm text-slate-200/80 leading-relaxed mb-4">
-                      Halo Maps is a geospatial intelligence report built to unify population, density, and metro‑area signals into a single, decision‑ready experience with narrative overlays.
+                      {project.description}
                     </p>
 
                     <div className="flex flex-wrap gap-2 text-[11px] text-cyan-200/80">
-                      {["Power BI", "Azure Maps", "DAX"].map((tag) => (
+                      {project.tags.map((tag) => (
                         <span
                           key={tag}
                           className="rounded-full border border-cyan-500/40 bg-cyan-500/10 px-2 py-0.5"
@@ -227,58 +243,10 @@ export default function HomePage() {
                         </span>
                       ))}
                     </div>
-                  </GlassPanel>
-                </motion.div>
-              </Link>
-            </motion.div>
-
-            {/* Coming Soon */}
-            <motion.div variants={staggerItem}>
-              <motion.div
-                whileHover={{
-                  y: -6,
-                  scale: 1.02,
-                  boxShadow: "0 0 25px rgba(0,255,255,0.25)",
-                }}
-                transition={{ type: "spring", stiffness: 260, damping: 18 }}
-              >
-                <GlassPanel>
-                  <div className="flex items-center justify-between mb-3">
-                    <div className="text-xs tracking-[0.22em] uppercase text-slate-300/80">
-                      Coming Soon
-                    </div>
-                    <div className="text-[10px] tracking-[0.22em] uppercase text-slate-500">
-                      TRRC Dashboard
-                    </div>
-                  </div>
-
-                  <h3 className="text-lg font-semibold text-cyan-100 mb-2">
-                    TRRC Dashboard
-                  </h3>
-
-                  <p className="text-sm text-slate-200/80 leading-relaxed mb-4">
-                    A full-stack oil & gas analytics pipeline built on 78M+ records from the Texas Railroad Commission; covering production trends, operator benchmarking, territory planning, and prospecting across 30+ years of Texas drilling history.
-                  </p>
-
-                  <div className="flex flex-wrap gap-2 text-[11px] text-cyan-200/80">
-                    <span className="rounded-full border border-cyan-500/40 bg-cyan-500/10 px-2 py-0.5">
-                      Power BI
-                    </span>
-                    <span className="rounded-full border border-cyan-500/40 bg-cyan-500/10 px-2 py-0.5">
-                      SQL
-                    </span>
-                    <span className="rounded-full border border-cyan-500/40 bg-cyan-500/10 px-2 py-0.5">
-                      ETL
-                    </span><span className="rounded-full border border-cyan-500/40 bg-cyan-500/10 px-2 py-0.5">
-                      Python
-                    </span>
-                    <span className="rounded-full border border-cyan-500/40 bg-cyan-500/10 px-2 py-0.5">
-                      Narrative KPIs
-                    </span>
-                  </div>
-                </GlassPanel>
+                  </motion.div>
+                </Link>
               </motion.div>
-            </motion.div>
+            ))}
           </motion.div>
         </div>
       </motion.section>
@@ -316,13 +284,13 @@ export default function HomePage() {
             </div>
 
             <p className="text-slate-200/85 leading-relaxed text-sm sm:text-base">
-              This site is a custom, self‑built system created to demonstrate how I design and deliver analytical products end‑to‑end. Rather than showcasing isolated dashboards, the portfolio highlights the reasoning, structure, and user‑experience decisions behind each solution — giving leaders a clear view of how I build tools that drive real business impact.
+              This site is a custom, self-built system created to demonstrate how I design and deliver analytical products end-to-end. Rather than showcasing isolated dashboards, the portfolio highlights the reasoning, structure, and user-experience decisions behind each solution — giving leaders a clear view of how I build tools that drive real business impact.
             </p>
           </GlassPanel>
         </div>
       </motion.section>
 
-            {/* FOOTER */}
+      {/* FOOTER */}
       <motion.footer
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -331,7 +299,7 @@ export default function HomePage() {
       >
         <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
           <div className="tracking-[0.22em] uppercase">
-            Custom‑Built BI Portfolio
+            Custom-Built BI Portfolio
           </div>
 
           <div className="flex items-center gap-4">
@@ -343,6 +311,7 @@ export default function HomePage() {
           </div>
         </div>
       </motion.footer>
+
     </SciFiLayout>
   );
 }

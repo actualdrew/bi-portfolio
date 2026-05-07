@@ -4,7 +4,6 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import SciFiLayout from "@/components/SciFiLayout";
 import GlassPanel from "@/components/GlassPanel";
-import EnergyDivider from "@/components/EnergyDivider";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20, filter: "blur(6px)" },
@@ -20,6 +19,23 @@ const staggerItem = {
   hidden: { opacity: 0, y: 16 },
   visible: { opacity: 1, y: 0 },
 };
+
+const projects = [
+  {
+    href: "/projects/halo-maps",
+    label: '"Halo Maps"',
+    title: "Geospatial Market Intelligence Suite",
+    description:
+      "A map-driven analytics engine that unifies population, density, and metro-area signals into a single, decision-ready experience.",
+  },
+  {
+    href: "/projects/rrc-dashboard",
+    label: '"RRC Dashboard"',
+    title: "Texas Oil & Gas Intelligence",
+    description:
+      "A full-stack upstream analytics suite built from raw Texas Railroad Commission data — production, wells, permits, and operator performance across 30+ years of Texas drilling history.",
+  },
+];
 
 export default function ProjectsPage() {
   return (
@@ -53,7 +69,8 @@ export default function ProjectsPage() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-slate-300/80 max-w-2xl mb-10"
           >
-            A collection of analytical products designed and built end‑to‑end — each one focused on clarity, structure, and decision‑ready insight.
+            A collection of analytical products designed and built end-to-end — each one
+            focused on clarity, structure, and decision-ready insight.
           </motion.p>
 
           {/* PROJECT GRID */}
@@ -63,70 +80,34 @@ export default function ProjectsPage() {
             animate="visible"
             className="grid grid-cols-1 md:grid-cols-2 gap-8"
           >
-
-            {/* HALO MAPS */}
-            <motion.div
-              variants={staggerItem}
-              whileHover={{
-                scale: 1.03,
-                rotateX: 3,
-                rotateY: -3,
-                boxShadow: "0 0 35px rgba(0,255,255,0.45)",
-                transition: { duration: 0.25, ease: "easeOut" }
-              }}
-            >
-              <Link href="/projects/halo-maps">
-                <GlassPanel className="transition-all duration-300 hover:border-cyan-400/40 hover:bg-cyan-400/5">
-                  <div className="text-xs tracking-[0.22em] uppercase text-cyan-200/80 mb-2">
-                    “Halo Maps”
-                  </div>
-                  <h3 className="text-lg font-semibold text-cyan-100 mb-2">
-                    Geospatial Market Intelligence Suite
-                  </h3>
-                  <p className="text-sm text-slate-200/80 leading-relaxed">
-                    A map‑driven analytics engine that unifies population, density, and metro‑area signals into a single, decision‑ready experience.
-                  </p>
-                </GlassPanel>
-              </Link>
-            </motion.div>
-
-            {/* COMING SOON */}
-            <motion.div
-              variants={staggerItem}
-              whileHover={{
-                scale: 1.03,
-                rotateX: 3,
-                rotateY: -3,
-                boxShadow: "0 0 35px rgba(0,255,255,0.45)",
-                transition: { duration: 0.25, ease: "easeOut" }
-              }}
-            >
-              <GlassPanel className="transition-all duration-300 hover:border-cyan-400/40 hover:bg-cyan-400/5">
-                <div className="text-xs tracking-[0.22em] uppercase text-slate-300/80 mb-2">
-                  Coming Soon
-                </div>
-                <h3 className="text-lg font-semibold text-cyan-100 mb-2">
-                  TRRC Dashboard
-                </h3>
-                <p className="text-sm text-slate-200/80 leading-relaxed">
-                  A full-stack oil & gas analytics pipeline built on 78M+ records from the Texas Railroad Commission — covering production trends, operator benchmarking, territory planning, and prospecting across 30+ years of Texas drilling history.
-                </p>
-              </GlassPanel>
-            </motion.div>
-
+            {projects.map((project) => (
+              <motion.div key={project.href} variants={staggerItem} className="h-full">
+                <Link href={project.href} className="block h-full">
+                  <motion.div
+                    whileHover={{
+                      scale: 1.03,
+                      boxShadow: "0 0 35px rgba(0,255,255,0.45)",
+                    }}
+                    transition={{ duration: 0.25, ease: "easeOut" }}
+                    className="h-full rounded-xl border border-cyan-400/20 bg-white/5 backdrop-blur-sm p-6 hover:border-cyan-400/40 hover:bg-cyan-400/5 transition-colors duration-300"
+                  >
+                    <div className="text-xs tracking-[0.22em] uppercase text-cyan-200/80 mb-2">
+                      {project.label}
+                    </div>
+                    <h3 className="text-lg font-semibold text-cyan-100 mb-2">
+                      {project.title}
+                    </h3>
+                    <p className="text-sm text-slate-200/80 leading-relaxed">
+                      {project.description}
+                    </p>
+                  </motion.div>
+                </Link>
+              </motion.div>
+            ))}
           </motion.div>
+
         </div>
       </motion.section>
-
-      {/* DIVIDER */}
-      <motion.div
-        initial={{ scaleX: 0 }}
-        whileInView={{ scaleX: 1 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-        className="origin-left"
-      >
-        <EnergyDivider />
-      </motion.div>
     </SciFiLayout>
   );
 }
