@@ -94,7 +94,7 @@ export default function RRCDashboardPage() {
           >
             <GlassPanel className="hover-lift flex flex-col h-full">
               <h2 className="text-xl font-semibold text-cyan-100 mb-4">
-                Interactive Power BI Report
+                RRC Dashboard
               </h2>
               <div className="relative w-full flex-1 min-h-[480px]">
                 <iframe
