@@ -80,30 +80,30 @@ export default function HaloMapsPage() {
 
           {/* Embed */}
           <motion.div
-  variants={fadeUp}
-  initial="hidden"
-  whileInView="visible"
-  transition={{ duration: 0.6 }}
-  className="lg:col-span-2 flex flex-col h-full"
->
-  <GlassPanel className="hover-lift flex flex-col h-full">
-    <h2 className="text-xl font-semibold text-cyan-100 mb-4">
-      Interactive Power BI Report
-    </h2>
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            transition={{ duration: 0.6 }}
+            className="lg:col-span-2 flex flex-col h-full"
+          >
+            <GlassPanel className="hover-lift flex flex-col h-full">
+              <h2 className="text-xl font-semibold text-cyan-100 mb-4">
+                Interactive Power BI Report
+              </h2>
 
-    <div className="relative w-full flex-1 min-h-[480px]">
-      <iframe
-        title="PowerBI Halo Map--Azure"
-        src="https://app.powerbi.com/view?r=eyJrIjoiYzMyNzQwZTYtOGI4YS00ZGI2LTkxMzYtNjUxZGYzMzI0NWJjIiwidCI6ImNhZGZjN2E1LTBlZjUtNDJjZi05MTJjLTNhNzgzNWZiZWY5MCJ9&embedImagePlaceholder=true"
-        className="absolute top-0 left-0 w-full h-full rounded-xl"
-        frameBorder="0"
-        allowFullScreen
-      />
-    </div>
-  </GlassPanel>
-</motion.div>
+              <div className="relative w-full flex-1 min-h-[480px]">
+                <iframe
+                  title="PowerBI Halo Map--Azure"
+                  src="https://app.powerbi.com/view?r=eyJrIjoiYzMyNzQwZTYtOGI4YS00ZGI2LTkxMzYtNjUxZGYzMzI0NWJjIiwidCI6ImNhZGZjN2E1LTBlZjUtNDJjZi05MTJjLTNhNzgzNWZiZWY5MCJ9&embedImagePlaceholder=true"
+                  className="absolute top-0 left-0 w-full h-full rounded-xl"
+                  frameBorder="0"
+                  allowFullScreen
+                />
+              </div>
+            </GlassPanel>
+          </motion.div>
 
-          {/* Sidebar Overview + HOW TO USE */}
+          {/* Sidebar */}
           <motion.aside
             variants={fadeUp}
             initial="hidden"
@@ -123,6 +123,45 @@ export default function HaloMapsPage() {
               </p>
             </GlassPanel>
 
+            {/* SimpleMaps Data Badge */}
+            <a
+              href="https://simplemaps.com/data/us-cities"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block"
+            >
+              <motion.div
+                whileHover={{
+                  scale: 1.03,
+                  boxShadow: "0 0 20px rgba(0,255,255,0.2)",
+                }}
+                transition={{ duration: 0.2, ease: "easeOut" }}
+                className="rounded-xl border border-cyan-500/30 bg-cyan-500/5 backdrop-blur-sm px-4 py-3 flex items-center justify-between gap-3 hover:border-cyan-400/50 hover:bg-cyan-500/10 transition-colors duration-300"
+              >
+                <div>
+                  <div className="text-[10px] tracking-[0.2em] uppercase text-cyan-200/60 mb-0.5">
+                    Data Source
+                  </div>
+                  <div className="text-sm font-medium text-cyan-100">
+                    simplemaps.com/data/us-cities
+                  </div>
+                </div>
+                <svg
+                  className="w-4 h-4 text-cyan-400/70 shrink-0"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                  />
+                </svg>
+              </motion.div>
+            </a>
+
             {/* HOW TO USE */}
             <GlassPanel className="hover-lift">
               <div className="text-xs tracking-[0.22em] uppercase text-cyan-200/80 mb-2">
@@ -130,23 +169,23 @@ export default function HaloMapsPage() {
               </div>
               <ul className="text-sm text-slate-200/80 leading-relaxed space-y-3">
                 <li>
-                  <strong className="text-cyan-200">1. Choose a Mode:</strong>  
+                  <strong className="text-cyan-200">1. Choose a Mode:</strong>{" "}
                   Select Coordinate, Metro, or City/State mode to define how the map interprets your input.
                 </li>
                 <li>
-                  <strong className="text-cyan-200">2. Enter or Select a Location:</strong>  
+                  <strong className="text-cyan-200">2. Enter or Select a Location:</strong>{" "}
                   Use the slicers to enter coordinates or choose a metro/city.
                 </li>
                 <li>
-                  <strong className="text-cyan-200">3. Explore the Map:</strong>  
+                  <strong className="text-cyan-200">3. Explore the Map:</strong>{" "}
                   Azure Maps updates instantly based on your selection.
                 </li>
                 <li>
-                  <strong className="text-cyan-200">4. Read the Narrative:</strong>  
+                  <strong className="text-cyan-200">4. Read the Narrative:</strong>{" "}
                   The narrative panel explains what your selection means.
                 </li>
                 <li>
-                  <strong className="text-cyan-200">5. Compare Areas:</strong>  
+                  <strong className="text-cyan-200">5. Compare Areas:</strong>{" "}
                   Switch modes or locations to evaluate different geographies.
                 </li>
               </ul>
@@ -154,7 +193,7 @@ export default function HaloMapsPage() {
           </motion.aside>
         </div>
 
-        {/* CASE STUDY SECTION (UNCHANGED) */}
+        {/* CASE STUDY */}
         <motion.div
           variants={fadeUp}
           initial="hidden"
@@ -178,7 +217,6 @@ export default function HaloMapsPage() {
                   Case Study
                 </h2>
               </div>
-
               <div className="text-cyan-300 text-sm tracking-wide">
                 {open ? "Hide" : "Show"}
               </div>
@@ -191,7 +229,6 @@ export default function HaloMapsPage() {
                 transition={{ duration: 0.4, ease: "easeOut" }}
                 className="mt-6 space-y-6 text-slate-200/85 leading-relaxed"
               >
-                {/* Your existing case study content remains unchanged */}
                 <div>
                   <h3 className="text-lg font-semibold text-cyan-200 mb-2">Overview</h3>
                   <p>
@@ -246,7 +283,7 @@ export default function HaloMapsPage() {
           </GlassPanel>
         </motion.div>
 
-        {/* TECHNICAL OVERVIEW (COLLAPSIBLE) */}
+        {/* TECHNICAL OVERVIEW */}
         <motion.div
           variants={fadeUp}
           initial="hidden"
@@ -255,7 +292,6 @@ export default function HaloMapsPage() {
           className="mt-16"
         >
           <GlassPanel className="hover-lift p-6">
-            {/* Header Block */}
             <div
               className="flex items-center justify-between cursor-pointer"
               onClick={() => setTechOpen(!techOpen)}
@@ -271,13 +307,11 @@ export default function HaloMapsPage() {
                   Technical Overview
                 </h2>
               </div>
-
               <div className="text-cyan-300 text-sm tracking-wide">
                 {techOpen ? "Hide" : "Show"}
               </div>
             </div>
 
-            {/* Collapsible Content */}
             {techOpen && (
               <motion.div
                 initial={{ opacity: 0, y: 12 }}
@@ -285,12 +319,10 @@ export default function HaloMapsPage() {
                 transition={{ duration: 0.4, ease: "easeOut" }}
                 className="mt-6 space-y-6 text-slate-200/85 leading-relaxed"
               >
-               
-
                 <div>
                   <h3 className="text-lg font-semibold text-cyan-200 mb-2">Mode Switching</h3>
                   <p>
-                    The report supports three analytical modes—Coordinate Mode, Metro Mode, and
+                    The report supports three analytical modes — Coordinate Mode, Metro Mode, and
                     City/State Mode. These modes are switched using Power BI bookmarks, which
                     control which slicers are visible and which inputs are active. The underlying
                     data model remains constant; only the UI state changes.
@@ -316,8 +348,8 @@ export default function HaloMapsPage() {
                     dynamic text updates.
                   </p>
 
-                  <pre className="bg-[#0a0f1a] border border-cyan-500/20 rounded-md p-3 text-[11px] overflow-x-auto text-cyan-200">
-Distance = 
+                  <pre className="bg-[#0a0f1a] border border-cyan-500/20 rounded-md p-3 text-[11px] overflow-x-auto text-cyan-200 mt-3">
+{`Distance =
 VAR Lat1 = [Selected Latitude]
 VAR Lon1 = [Selected Longitude]
 VAR Lat2 = MAX(SimpleMaps[lat])
@@ -334,7 +366,7 @@ VAR a =
 
 VAR c = 2 * ATAN( SQRT(a) / SQRT(1 - a) )
 
-RETURN EarthRadius * c
+RETURN EarthRadius * c`}
                   </pre>
                 </div>
 

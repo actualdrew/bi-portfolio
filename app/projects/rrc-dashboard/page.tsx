@@ -32,7 +32,7 @@ export default function RRCDashboardPage() {
               RRC Oil &amp; Gas
             </div>
             <h1 className="text-3xl sm:text-4xl font-semibold tracking-[0.12em] text-cyan-100">
-              Texas Oil & Gas Production Analytics Dashboard
+              Texas Production Analytics Dashboard
             </h1>
             <p className="mt-3 text-slate-200/80 max-w-2xl">
               A full upstream analytics suite built from raw Texas Railroad Commission data —
@@ -56,13 +56,13 @@ export default function RRCDashboardPage() {
                 Snapshot
               </div>
               <div className="text-sm text-slate-200/85">
-                <strong className="text-cyan-200">Status:</strong> In Development
+                <strong className="text-cyan-200">Status:</strong> Production
               </div>
               <div className="mt-3 text-sm text-slate-200/80">
                 <strong className="text-cyan-200">Stack:</strong> Power BI · SQL Server · DAX · Python ETL
               </div>
               <div className="mt-3 text-sm text-slate-200/80">
-                <strong className="text-cyan-200">Data:</strong> 2018 – 2026 · Monthly
+                <strong className="text-cyan-200">Data:</strong> 2000 – 2026 · Monthly
               </div>
               <div className="mt-3 text-sm text-slate-200/80">
                 <strong className="text-cyan-200">Records:</strong> ~15M+ rows across facts
@@ -116,6 +116,7 @@ export default function RRCDashboardPage() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="lg:col-span-1 space-y-6"
           >
+            {/* Overview */}
             <GlassPanel className="hover-lift">
               <div className="text-xs tracking-[0.22em] uppercase text-cyan-200/80 mb-2">
                 Overview
@@ -124,10 +125,50 @@ export default function RRCDashboardPage() {
                 Built directly from official RRC datasets, this dashboard surfaces macro
                 production patterns — statewide oil and gas volumes, gas vs. oil balance,
                 and well activity — while enabling drill-downs into operators, counties,
-                fields, and drilling permits across more than 20 years of Texas upstream history.
+                fields, and drilling permits across 33 years of Texas upstream history.
               </p>
             </GlassPanel>
 
+            {/* RRC Data Source Badge */}
+            <a
+              href="https://www.rrc.texas.gov/resource-center/research/data-sets-available-for-download/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block"
+            >
+              <motion.div
+                whileHover={{
+                  scale: 1.03,
+                  boxShadow: "0 0 20px rgba(0,255,255,0.2)",
+                }}
+                transition={{ duration: 0.2, ease: "easeOut" }}
+                className="rounded-xl border border-cyan-500/30 bg-cyan-500/5 backdrop-blur-sm px-4 py-3 flex items-center justify-between gap-3 hover:border-cyan-400/50 hover:bg-cyan-500/10 transition-colors duration-300"
+              >
+                <div>
+                  <div className="text-[10px] tracking-[0.2em] uppercase text-cyan-200/60 mb-0.5">
+                    Data Source
+                  </div>
+                  <div className="text-sm font-medium text-cyan-100">
+                    rrc.texas.gov · Data Sets
+                  </div>
+                </div>
+                <svg
+                  className="w-4 h-4 text-cyan-400/70 shrink-0"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                  />
+                </svg>
+              </motion.div>
+            </a>
+
+            {/* How to Use */}
             <GlassPanel className="hover-lift">
               <div className="text-xs tracking-[0.22em] uppercase text-cyan-200/80 mb-2">
                 How to Use
