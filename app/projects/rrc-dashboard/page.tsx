@@ -56,7 +56,7 @@ export default function RRCDashboardPage() {
                 Snapshot
               </div>
               <div className="text-sm text-slate-200/85">
-                <strong className="text-cyan-200">Status:</strong> Production
+                <strong className="text-cyan-200">Status:</strong> In Development
               </div>
               <div className="mt-3 text-sm text-slate-200/80">
                 <strong className="text-cyan-200">Stack:</strong> Power BI · SQL Server · DAX · Python ETL
