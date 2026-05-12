@@ -128,7 +128,7 @@ export default function ABCSalesDashboardPage() {
               </div>
               <p className="text-sm text-slate-200/80 leading-relaxed">
                 Built for senior leadership at ABC Inc., this dashboard delivers a clear,
-                interactive view of business performance — from statewide revenue trends and
+                interactive view of business performance — from revenue trends and
                 pipeline health to individual rep leaderboards and lead conversion quality
                 across five years of sales data.
               </p>
@@ -368,7 +368,7 @@ export default function ABCSalesDashboardPage() {
                 <div>
                   <h3 className="text-lg font-semibold text-cyan-200 mb-2">DAX Measures</h3>
                   <p>
-                    26 measures organized into 5 display folders in a dedicated
+                    26 measures in a dedicated
                     <code className="text-cyan-300 text-xs mx-1">_Measures</code> table.
                     All measures referencing <code className="text-cyan-300 text-xs">order</code> or
                     <code className="text-cyan-300 text-xs mx-1">lead</code> tables use single-quote
