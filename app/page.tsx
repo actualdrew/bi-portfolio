@@ -42,6 +42,15 @@ const featuredProjects = [
       "A full-stack oil & gas analytics pipeline built on 78M+ records from the Texas Railroad Commission — covering production trends, operator benchmarking, and 30+ years of Texas drilling history.",
     tags: ["Power BI", "SQL", "ETL", "Python"],
   },
+  {
+    href: "/projects/abc-sales-dashboard",
+    label: '"ABC Sales"',
+    type: "Executive Reporting",
+    title: "Executive Sales Dashboard",
+    description:
+      "A five-page executive Power BI dashboard built from nine raw CSV sources — covering revenue performance, pipeline health, lead generation, and rep-level leaderboards across 270,000 rows of sales data.",
+    tags: ["Power BI", "DAX", "Power Query"],
+  },
 ];
 
 export default function HomePage() {
@@ -114,6 +123,28 @@ export default function HomePage() {
                 >
                   Browse All Projects
                 </Link>
+              </motion.div>
+            </div>
+
+            <div className="mt-4 flex flex-wrap gap-3">
+              <motion.div whileHover={{ scale: 1.04, x: 2 }} whileTap={{ scale: 0.97 }}>
+                <a
+                  href="/Andrew_Adamson_Resume.pdf"
+                  download
+                  className="rounded-full border border-slate-500/40 bg-transparent px-5 py-1.5 text-xs tracking-[0.22em] uppercase text-slate-300/70 hover:border-cyan-400/50 hover:text-cyan-200 transition-colors"
+                >
+                  Resume (PDF)
+                </a>
+              </motion.div>
+
+              <motion.div whileHover={{ scale: 1.04, x: 2 }} whileTap={{ scale: 0.97 }}>
+                <a
+                  href="/Andrew_Adamson_Resume.docx"
+                  download
+                  className="rounded-full border border-slate-500/40 bg-transparent px-5 py-1.5 text-xs tracking-[0.22em] uppercase text-slate-300/70 hover:border-cyan-400/50 hover:text-cyan-200 transition-colors"
+                >
+                  Resume (Word)
+                </a>
               </motion.div>
             </div>
           </motion.div>
@@ -202,7 +233,7 @@ export default function HomePage() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
-            className="grid grid-cols-1 md:grid-cols-2 gap-8"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
           >
             {featuredProjects.map((project) => (
               <motion.div key={project.href} variants={staggerItem} className="h-full">

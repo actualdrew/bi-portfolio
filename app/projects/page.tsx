@@ -35,6 +35,13 @@ const projects = [
     description:
       "A full-stack upstream analytics suite built from raw Texas Railroad Commission data — production, wells, permits, and operator performance across 30+ years of Texas drilling history.",
   },
+  {
+    href: "/projects/abc-sales-dashboard",
+    label: '"ABC Sales Dashboard"',
+    title: "Executive Sales Dashboard",
+    description:
+      "A five-page executive Power BI dashboard built from nine raw CSV sources — covering revenue performance, pipeline health, lead generation, team activity, and rep-level leaderboards across 270,000 rows of sales data.",
+  },
 ];
 
 export default function ProjectsPage() {
