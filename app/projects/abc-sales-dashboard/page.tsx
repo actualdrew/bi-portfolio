@@ -59,7 +59,7 @@ export default function ABCSalesDashboardPage() {
                 <strong className="text-cyan-200">Status:</strong> Production
               </div>
               <div className="mt-3 text-sm text-slate-200/80">
-                <strong className="text-cyan-200">Stack:</strong> Power BI · DAX · Power Query · M
+                <strong className="text-cyan-200">Stack:</strong> Power BI · DAX · Power Query
               </div>
               <div className="mt-3 text-sm text-slate-200/80">
                 <strong className="text-cyan-200">Data:</strong> 2020 – 2025 · 270K rows
@@ -76,10 +76,15 @@ export default function ABCSalesDashboardPage() {
           initial={{ scaleX: 0 }}
           whileInView={{ scaleX: 1 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="origin-left mb-10"
+          className="origin-left mb-6"
         >
           <EnergyDivider />
         </motion.div>
+
+        {/* ── Disclaimer ── */}
+        <p className="mb-10 text-xs text-slate-500 italic">
+          All data is artificially generated for demonstration purposes only and does not represent any real company, individual, or transaction.
+        </p>
 
         {/* ── Main grid ── */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
@@ -140,7 +145,7 @@ export default function ABCSalesDashboardPage() {
                   ["Pipeline Value", "$1.21B"],
                   ["Win Rate", "69.49%"],
                   ["Avg Sales Cycle", "97 days"],
-                  ["DAX Measures", "26 across 5 folders"],
+                  ["Lead Conversion Rate", "52.61%"],
                 ].map(([label, value]) => (
                   <div key={label} className="flex items-center justify-between">
                     <span className="text-slate-400 text-xs uppercase tracking-[0.16em]">{label}</span>
